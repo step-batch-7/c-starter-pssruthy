@@ -14,6 +14,7 @@ double simple_interest(float, float, float);
 double compound_interest(float, float, float);
 
 double convert_to_centigrade(double);
+double convert_to_fahrenheit(double);
 
 int isEven(int num){
   return num % 2 == 0;
@@ -58,6 +59,9 @@ double convert_to_centigrade(double fahrenheit){
   return (fahrenheit - 32) * 5 / 9;
 }
 
+double convert_to_fahrenheit(double centigrade){
+  return (centigrade * 9 / 5) + 32;
+}
 
 int main(void){
 
@@ -111,7 +115,12 @@ int main(void){
   printf("\nTemperature Conversion\n");
   printf("Enter temperature in fahrenheit : ");
   scanf("%lf", &fahrenheit);
-  printf("Temperature in centigrade : %lf\n", convert_to_centigrade(fahrenheit));
+  printf("Temperature in centigrade : %lf\n\n", convert_to_centigrade(fahrenheit));
+
+  double centigrade;
+  printf("Enter temperature in centigrade : ");
+  scanf("%lf", &centigrade);
+  printf("Temperature in fahrenheit : %lf\n", convert_to_fahrenheit(centigrade));
 
   return 0;
 }
