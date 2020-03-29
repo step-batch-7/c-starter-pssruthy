@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <math.h>
 
 int isEven(int);
 int isOdd(int);
@@ -7,6 +8,7 @@ int cube(int);
 int GCD(int, int);
 int LCM(int, int);
 double simple_interest(float, float, float);
+double compound_interest(float, float, float);
 
 int isEven(int num){
   return num % 2 == 0;
@@ -39,8 +41,12 @@ int LCM(int num1, int num2){
   return (num1 * num2) / GCD(num1, num2);
 }
 
-double simple_interest(float initial_principle,float interest_rate,float time){
-  return (initial_principle * interest_rate * time) /100;
+double simple_interest(float principle,float interest,float time){
+  return (principle * interest * time) /100;
+}
+
+double compound_interest(float principle,float interest,float time){
+  return (principle * pow((1 + interest / 100), time)) - principle;
 }
 
 int main(void){
@@ -70,16 +76,26 @@ int main(void){
 
   printf("Enter two numbers to find the least common multiple : ");
   scanf("%d %d", &num1, &num2);
-  printf("LCM : %d\n\n" ,LCM(num1, num2));
+  printf("LCM : %d\n" ,LCM(num1, num2));
 
-  printf("Simple Interest\n");
-  float initial_principle, interest_rate,time;
-  printf("Enter the initial principle : ");
-  scanf("%f", &initial_principle);
+  float principle, interest,time;
+  printf("\nSimple Interest\n");
+  printf("Enter the principle : ");
+  scanf("%f", &principle);
   printf("Annual interest rate : ");
-  scanf("%f", &interest_rate);
+  scanf("%f", &interest);
   printf("Time : ");
   scanf("%f", &time);
-  printf("Simple interest : %f\n", simple_interest(initial_principle, interest_rate,time));
+  printf("Simple interest : %f\n", simple_interest(principle, interest,time));
+
+  printf("\nCompound Interest\n");
+  printf("Enter the principle : ");
+  scanf("%f", &principle);
+  printf("Annual interest rate : ");
+  scanf("%f", &interest);
+  printf("Time : ");
+  scanf("%f", &time);
+  printf("Simple interest : %f\n", compound_interest(principle, interest,time));
+  
   return 0;
 }
