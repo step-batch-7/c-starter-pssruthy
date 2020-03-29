@@ -3,12 +3,17 @@
 
 int isEven(int);
 int isOdd(int);
+
 unsigned int square(int);
 int cube(int);
+
 int GCD(int, int);
 int LCM(int, int);
+
 double simple_interest(float, float, float);
 double compound_interest(float, float, float);
+
+double convert_to_centigrade(double);
 
 int isEven(int num){
   return num % 2 == 0;
@@ -48,6 +53,11 @@ double simple_interest(float principle,float interest,float time){
 double compound_interest(float principle,float interest,float time){
   return (principle * pow((1 + interest / 100), time)) - principle;
 }
+
+double convert_to_centigrade(double fahrenheit){
+  return (fahrenheit - 32) * 5 / 9;
+}
+
 
 int main(void){
 
@@ -96,6 +106,12 @@ int main(void){
   printf("Time : ");
   scanf("%f", &time);
   printf("Simple interest : %f\n", compound_interest(principle, interest,time));
-  
+
+  double fahrenheit;
+  printf("\nTemperature Conversion\n");
+  printf("Enter temperature in fahrenheit : ");
+  scanf("%lf", &fahrenheit);
+  printf("Temperature in centigrade : %lf\n", convert_to_centigrade(fahrenheit));
+
   return 0;
 }
