@@ -5,6 +5,7 @@ int isOdd(int);
 unsigned int square(int);
 int cube(int);
 int GCD(int, int);
+int LCM(int, int);
 
 int isEven(int num){
   return num % 2 == 0;
@@ -33,6 +34,10 @@ int GCD(int num1, int num2){
   }
 }
 
+int LCM(int num1, int num2){
+  return (num1 * num2) / GCD(num1, num2);
+}
+
 int main(void){
 
   int num;
@@ -57,6 +62,10 @@ int main(void){
   printf("Enter two numbers to find the greatest common divisor : ");
   scanf("%d %d", &num1, &num2);
   printf("GCD : %d\n\n" ,GCD(num1, num2));
+
+  printf("Enter two numbers to find the least common multiple : ");
+  scanf("%d %d", &num1, &num2);
+  printf("LCM : %d\n\n" ,LCM(num1, num2));
 
   return 0;
 }
