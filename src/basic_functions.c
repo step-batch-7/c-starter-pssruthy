@@ -18,6 +18,7 @@ double convert_to_fahrenheit(double);
 
 double largest_of_two(double,double);
 double largest_of_three(double,double,double);
+double average_of_three(double,double,double);
 
 int isEven(int num){
   return num % 2 == 0;
@@ -73,6 +74,10 @@ double largest_of_two(double num1, double num2){
 double largest_of_three(double num1, double num2, double num3){
   return largest_of_two(largest_of_two(num1, num2), num3);
 }
+
+double average_of_three(double num1, double num2, double num3){
+  return (num1 + num2 + num3) / 3;
+} 
 
 int main(void){
 
@@ -137,6 +142,10 @@ int main(void){
   printf("Enter three numbers to find largest number : ");
   scanf("%lf %lf %lf", &number1, &number2, &number3);
   printf("Largest number : %lf\n\n", largest_of_three(number1, number2, number3));
+
+  printf("Enter three numbers to find average : ");
+  scanf("%lf %lf %lf", &number1, &number2, &number3);
+  printf("Average : %lf\n\n", average_of_three(number1, number2, number3));
 
   return 0;
 }
