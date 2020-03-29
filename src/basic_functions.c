@@ -6,6 +6,7 @@ unsigned int square(int);
 int cube(int);
 int GCD(int, int);
 int LCM(int, int);
+double simple_interest(float, float, float);
 
 int isEven(int num){
   return num % 2 == 0;
@@ -38,6 +39,10 @@ int LCM(int num1, int num2){
   return (num1 * num2) / GCD(num1, num2);
 }
 
+double simple_interest(float initial_principle,float interest_rate,float time){
+  return (initial_principle * interest_rate * time) /100;
+}
+
 int main(void){
 
   int num;
@@ -67,5 +72,14 @@ int main(void){
   scanf("%d %d", &num1, &num2);
   printf("LCM : %d\n\n" ,LCM(num1, num2));
 
+  printf("Simple Interest\n");
+  float initial_principle, interest_rate,time;
+  printf("Enter the initial principle : ");
+  scanf("%f", &initial_principle);
+  printf("Annual interest rate : ");
+  scanf("%f", &interest_rate);
+  printf("Time : ");
+  scanf("%f", &time);
+  printf("Simple interest : %f\n", simple_interest(initial_principle, interest_rate,time));
   return 0;
 }
