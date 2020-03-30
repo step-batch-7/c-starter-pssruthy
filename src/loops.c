@@ -7,6 +7,7 @@ void print_even_number_series(long);
 void print_multiplication_table(long, long);
 long get_sum_of_N_numbers(long ,long );
 long get_product_of_N_numbers(long ,long );
+void print_odd_series_between_two(long ,long );
 
 long factorial(int number){
   long factorial = 1;
@@ -61,11 +62,17 @@ long get_sum_of_N_numbers(long start,long end){
 
 long get_product_of_N_numbers(long start,long end){
   long product = 1;
-  for (long count = start; count <= end; count++)
-  {
+  for (long count = start; count <= end; count++){
     product = product * count;
   }
   return product;
+}
+
+void print_odd_series_between_two(long start, long end){
+  long first_odd = start + !(start % 2);
+  for (long count = first_odd; count <= end; count+= 2){
+    printf("%ld\n", count);  
+  }
 }
 
 int main(void ){
@@ -81,6 +88,8 @@ int main(void ){
   printf("5. Multiplicaton table\n");
   printf("6. Sum of any N numbers\n");
   printf("7. Product of any N numbers\n");
+  printf("8. Odd numbers between any two numbers\n");
+
   printf("Choice : ");
   scanf("%d" ,&choice);
 
@@ -144,6 +153,16 @@ int main(void ){
     printf("Enter the ending number : ");
     scanf("%ld", &end);
     printf("Product : %ld\n", get_product_of_N_numbers(start,end));
+    break;
+
+  case 8:
+    printf("\n---Odd numbers between any two numbers---\n");
+    printf("Enter the starting number : ");
+    scanf("%ld", &start);
+    printf("Enter the ending number : ");
+    scanf("%ld", &end);
+    printf("Odd series : \n");
+    print_odd_series_between_two(start,end);
     break;
   
   default: printf("Wrong choice");
