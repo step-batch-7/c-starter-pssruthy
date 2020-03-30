@@ -5,6 +5,7 @@ void print_fibonacci(int);
 void print_odd_number_series(long);
 void print_even_number_series(long);
 void print_multiplication_table(long, long);
+long get_sum_of_N_numbers(long ,long );
 
 long factorial(int number){
   long factorial = 1;
@@ -48,13 +49,30 @@ void print_multiplication_table(long number, long limit){
   }
 }
 
+long get_sum_of_N_numbers(long start,long end){
+  long sum = 0;
+  for (long count = start; count <= end; count++)
+  {
+    sum = sum + count;
+  }
+  return sum;
+}
+
+
 
 int main(void ){
 
   int choice , number;
   long limit;
 
-  printf("Choose a number \n1. Factorial\n2. Fibonacci\n3. Odd number series\n4. Even number series\n5. Multiplicaton table\nChoice : ");
+  printf("Choose a number \n");
+  printf("1. Factorial\n");
+  printf("2. Fibonacci\n");
+  printf("3. Odd number series\n");
+  printf("4. Even number series\n");
+  printf("5. Multiplicaton table\n");
+  printf("6. Sum of any N numbers\n");
+  printf("Choice : ");
   scanf("%d" ,&choice);
 
   switch (choice)
@@ -82,7 +100,7 @@ int main(void ){
     print_odd_number_series(limit);
     break;
 
-    case 4:
+  case 4:
     printf("\n---Even Number Series---\n");
     printf("Enter the limit : ");
     scanf("%ld", &limit);
@@ -90,15 +108,25 @@ int main(void ){
     print_even_number_series(limit);
     break;
 
-    case 5:
+  case 5:
     printf("\n---Multiplication table---\n");
     printf("Enter the number : ");
     long num,count;
     scanf("%ld", &num);
     printf("Enter the count : ");
     scanf("%ld", &count);
-    printf("Even Number Series : \n");
+    printf("EMultiplication table : \n");
     print_multiplication_table(num,count);
+    break;
+
+  case 6:
+    printf("\n---Sum of any N numbers---\n");
+    printf("Enter the starting number : ");
+    long start,end;
+    scanf("%ld", &start);
+    printf("Enter the ending number : ");
+    scanf("%ld", &end);
+    printf("Sum : %ld\n", get_sum_of_N_numbers(start,end));
     break;
   
   default: printf("Wrong choice");
