@@ -8,6 +8,7 @@ void print_multiplication_table(long, long);
 long get_sum_of_N_numbers(long ,long );
 long get_product_of_N_numbers(long ,long );
 void print_odd_series_between_two(long ,long );
+void print_Nth_number_between_two(long ,long,long );
 
 long factorial(int number){
   long factorial = 1;
@@ -75,10 +76,16 @@ void print_odd_series_between_two(long start, long end){
   }
 }
 
+void print_Nth_number_between_two(long start, long end, long incrementor){
+  for (long count = start; count <= end; count+= incrementor){
+    printf("%ld\n", count);  
+  }
+}
+
 int main(void ){
 
   int choice , number;
-  long limit,start,end;
+  long limit,start,end,incrementor;
 
   printf("Choose a number \n");
   printf("1. Factorial\n");
@@ -89,6 +96,7 @@ int main(void ){
   printf("6. Sum of any N numbers\n");
   printf("7. Product of any N numbers\n");
   printf("8. Odd numbers between any two numbers\n");
+  printf("9. Every nth number between any two number\n");
 
   printf("Choice : ");
   scanf("%d" ,&choice);
@@ -163,6 +171,18 @@ int main(void ){
     scanf("%ld", &end);
     printf("Odd series : \n");
     print_odd_series_between_two(start,end);
+    break;
+
+  case 9:
+    printf("\n---Every nth number between any two number---\n");
+    printf("Enter the starting number : ");
+    scanf("%ld", &start);
+    printf("Enter the ending number : ");
+    scanf("%ld", &end);
+    printf("Enter the incrementor : ");
+    scanf("%ld", &incrementor);
+    printf("Series : \n");
+    print_Nth_number_between_two(start,end, incrementor);
     break;
   
   default: printf("Wrong choice");
