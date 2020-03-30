@@ -9,6 +9,7 @@ long get_sum_of_N_numbers(long ,long );
 long get_product_of_N_numbers(long ,long );
 void print_odd_series_between_two(long ,long );
 void print_Nth_number_between_two(long ,long,long );
+long get_sum_of_even_between_two(long, long);
 
 long factorial(int number){
   long factorial = 1;
@@ -82,6 +83,16 @@ void print_Nth_number_between_two(long start, long end, long incrementor){
   }
 }
 
+long get_sum_of_even_between_two(long start,long end){
+  long first_even = start + (start % 2);
+  long sum = 0;
+  for (long count = first_even; count <= end; count+=2)
+  {
+    sum = sum + count;
+  }
+  return sum;
+}
+
 int main(void ){
 
   int choice , number;
@@ -97,6 +108,7 @@ int main(void ){
   printf("7. Product of any N numbers\n");
   printf("8. Odd numbers between any two numbers\n");
   printf("9. Every nth number between any two number\n");
+  printf("10. Sum of all even numbers between any two numbers\n");
 
   printf("Choice : ");
   scanf("%d" ,&choice);
@@ -183,6 +195,15 @@ int main(void ){
     scanf("%ld", &incrementor);
     printf("Series : \n");
     print_Nth_number_between_two(start,end, incrementor);
+    break;
+
+  case 10:
+    printf("\n---Sum of all even numbers between any two numbers---\n");
+    printf("Enter the starting number : ");
+    scanf("%ld", &start);
+    printf("Enter the ending number : ");
+    scanf("%ld", &end);
+    printf("Sum : %ld\n", get_sum_of_even_between_two(start,end));
     break;
   
   default: printf("Wrong choice");
