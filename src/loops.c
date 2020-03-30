@@ -1,7 +1,8 @@
 #include <stdio.h>
 
 long factorial(int);
-void fibonacci(int);
+void print_fibonacci(int);
+void print_odd_number_series(long);
 
 long factorial(int number){
   long factorial = 1;
@@ -11,7 +12,7 @@ long factorial(int number){
   return factorial;
 }
 
-void fibonacci(int count){
+void print_fibonacci(int count){
   int current_term = 0, next_term=1;
 
   while(count > 0) {
@@ -22,11 +23,20 @@ void fibonacci(int count){
   }
 }
 
+void print_odd_number_series(long limit){
+  long odd_number = 1;
+  while(odd_number < limit){
+    printf("%ld\n", odd_number);
+    odd_number = odd_number + 2;
+  }
+}
+
 int main(void ){
 
   int choice , number;
+  long limit;
 
-  printf("Choose a number \n1. Factorial\n2. Fibonacci\nChoice : ");
+  printf("Choose a number \n1. Factorial\n2. Fibonacci\n3. Odd number series\nChoice : ");
   scanf("%d" ,&choice);
 
   switch (choice)
@@ -43,7 +53,15 @@ int main(void ){
     printf("Enter the number : ");
     scanf("%d", &number);
     printf("Fibonacci series : \n");
-    fibonacci(number);
+    print_fibonacci(number);
+    break;
+
+  case 3:
+    printf("\n---Odd Number Series---\n");
+    printf("Enter the limit : ");
+    scanf("%ld", &limit);
+    printf("Odd Number Series : \n");
+    print_odd_number_series(limit);
     break;
   
   default: printf("Wrong choice");
